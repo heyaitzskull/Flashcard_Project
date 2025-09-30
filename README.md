@@ -40,6 +40,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
+![flashcard_gif-MadewithClipchamp-ezgif com-optimize](https://github.com/user-attachments/assets/4b5d0c9c-01a0-488d-9c35-5b9b872969cd)
+
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
