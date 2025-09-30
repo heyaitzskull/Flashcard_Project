@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+  background-image: url('./assets/retro3.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center; /*center the image */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal center */
+  justify-content: center; /* vertical center */
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5em;
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: rgb(67, 46, 61);
+  text-shadow: 0px 2px 0px #d3ffcf;
+  font-family: "Jersey 20", sans-serif;
+}
+
+.sub-title {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(215, 249, 255);
+  text-shadow: 0px 0px 2px #000000;
+  font-family: "Jersey 20", sans-serif;
+}
+
+.num-cards {
+  font-size: 1.4em;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  color: #fffdda;
+  text-shadow: 0px 0px 3px rgb(48, 43, 135);
+  font-family: "Jersey 20", sans-serif;
+}
+
+.card-container {
+  perspective: 1000px; /* gives 3D effect */
+  width: 500px;
+  height: 300px;
+  font-family: "Goudy Bookletter 1911", serif;
+  color: rgb(67, 46, 61);
+  
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  box-shadow: 10px 15px 0px rgba(0, 0, 0, 0.25);
+  background: white;
+  
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  
+}
+
+.card-front h1,
+.card-back h2 {
+  white-space: pre-line;
+  font-size: 20px;
+}
+
+.button-container {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.back-next {
+  background-color: rgb(67, 46, 61);
+  color: white;
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  opacity: 0.9;
+  margin-bottom: 70px;
+  font-family: "Jersey 20", sans-serif;
+  font-size: 25px;
+}
+
+.back-next:hover {
+  background-color: rgb(215, 249, 255);
+  color: black;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.read-the-docs {
+  color: #888;
+}
