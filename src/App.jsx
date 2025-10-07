@@ -5,6 +5,7 @@ import './App.css'
 function App() {
   const [currCard, setCurrCard] = useState(0)
   const [clicked, setClicked] = useState(false)
+  const [clickedFlashcard, setClickedFlashcard] = useState(false)
   const [submitClicked, setSubmitClicked] = useState(false)
   const [guess, setGuess] = useState("")
   const [isCorrect, setCorrect] = useState(false)
@@ -114,6 +115,7 @@ function App() {
 
   const handleClick = () => {
     setClicked(!clicked)
+    setClickedFlashcard(true);
   }
 
 
@@ -124,6 +126,7 @@ function App() {
     resetGuess();
 
     setClicked(false)
+    setClickedFlashcard(false);
   }
 
 
@@ -134,9 +137,10 @@ function App() {
     resetGuess();
    
     setClicked(false)
+    setClickedFlashcard(false);
   }
 
-  const normalize = (s) => s.replace(/\s+/g, ' ').trim().toLowerCase();
+  // const normalize = (s) => s.replace(/\s+/g, ' ').trim().toLowerCase();
 
   const resetGuess = () => {
     setClicked(false);
@@ -147,11 +151,20 @@ function App() {
 
 
   const handleSubmitGuess = (params) => {
-    const correct = normalize(flashcards[currCard].answer);
-    const userGuess = normalize(params);
-    setCorrect(correct === userGuess);
+    let correct = false;
+
+    if (!clickedFlashcard) {
+      // Only check the guess if the card hasn't been flipped yet
+      const normalize = (s) => s.replace(/\s+/g, ' ').trim().toLowerCase();
+      correct = normalize(params) === normalize(flashcards[currCard].answer);
+    } else {
+      // If the card was flipped, automatically mark as incorrect
+      correct = false;
+    }
+
+    setCorrect(correct);
     setSubmitClicked(true);
-  }
+  };
  
   return (
     <div className="app-container">
