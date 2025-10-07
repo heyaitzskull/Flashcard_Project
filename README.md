@@ -4,7 +4,7 @@ Submitted by: **Prativa Khatiwada**
 
 This web app: **A flashcard project made with pairs of items to store in a flashcard-like format that I can then use to study vocabulary words**
 
-Time spent: **4** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Required Features
 
@@ -23,19 +23,14 @@ The following **required** functionality is completed:
   - [x] Clicking on a card flips it over, showing the back with corresponding information 
   - [x] Clicking on a flipped card again flips it back, showing the front
 - [x] **Clicking on the next button displays a random new card**
-
-The following **optional** features are implemented:
-
-- [ ] Cards contain images in addition to or in place of text
-  - [ ] Some or all cards have images in place of or in addition to text
-- [ ] Cards have different visual styles such as color based on their category
-  - Example categories you can use:
-    - Difficulty: Easy/medium/hard
-    - Subject: Biology/Chemistry/Physics/Earth science
-
-The following **additional** features are implemented:
-
-* [ ] List anything else that you added to improve the site's functionality!
+- [x] **The user can enter their guess into an input box *before* seeing the flipside of the card**
+  - Application features a clearly labeled input box with a submit button where users can type in a guess
+  - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong 
+  -  Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
+- [x] **The user can navigate through an ordered list of cardss**
+  - A forward/next button displayed on the card navigates to the next card in a set sequence when clicked
+  - A previous/back button displayed on the card returns to the previous card in the set sequence when clicked
+  - Both the next and back buttons should have some visual indication that the user is at the beginning or end of the list (for example, graying out and no longer being available to click), not allowing for wrap-around navigation
 
 ## Video Walkthrough
 
