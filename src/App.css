@@ -105,7 +105,7 @@ body {
 }
 
 .button-container {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -130,9 +130,66 @@ body {
   font-size: 25px;
 }
 
-.back-next:hover {
+.back-next:hover:not(.disabled) {
   background-color: rgb(215, 249, 255);
   color: black;
+}
+
+.back-next.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.guess-container {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guess-text {
+  border: 2px solid rgb(67, 46, 61);
+  border-radius: 10px;
+  padding: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 250px;
+  font-family: "Goudy Bookletter 1911", serif;
+  font-weight: 600;
+}
+
+.guess-text.correct {
+  border-color: rgb(61, 255, 61);
+}
+
+.guess-text.incorrect {
+  border-color: rgb(255, 56, 56);
+}
+
+.submit-guess {
+  background-color: rgb(255, 254, 215);;
+  color: rgb(67, 46, 61);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  opacity: 0.9;
+  font-family: "Jersey 20", sans-serif;
+  font-size: 20px;
+}
+.submit-guess:hover {
+  background-color: rgb(194, 255, 216);
+  /* color: rgb(0, 0, 0); */
 }
 
 @keyframes logo-spin {

@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import './App.css'
 
+
 function App() {
   const [currCard, setCurrCard] = useState(0)
   const [clicked, setClicked] = useState(false)
+  const [submitClicked, setSubmitClicked] = useState(false)
+  const [guess, setGuess] = useState("")
+  const [isCorrect, setCorrect] = useState(false)
+  // const [isCorrect, setCorrect] = useState("")
+
 
   const flashcards = [
     {
@@ -103,35 +109,56 @@ function App() {
       answer: "Synchronous: tasks are performed one after the other, blocking the execution until each task is completed.\n\nAsynchronous: tasks can be performed independently, allowing other tasks to run while waiting for a task to complete."
     },
 
+
   ]
 
   const handleClick = () => {
     setClicked(!clicked)
   }
 
+
   const handleNextCard = () => {
     if (currCard < flashcards.length - 1) {
       setCurrCard(currCard + 1)
-    } else {
-      setCurrCard(0)
     }
+    resetGuess();
+
     setClicked(false)
   }
+
 
   const handlePrevCard = () => {
     if (currCard > 0) {
       setCurrCard(currCard - 1)
-    } else {
-      setCurrCard(flashcards.length - 1)
     }
+    resetGuess();
+   
     setClicked(false)
   }
-  
+
+  const normalize = (s) => s.replace(/\s+/g, ' ').trim().toLowerCase();
+
+  const resetGuess = () => {
+    setClicked(false);
+    setGuess('');
+    setSubmitClicked(false);
+    setCorrect(false);
+  };
+
+
+  const handleSubmitGuess = (params) => {
+    const correct = normalize(flashcards[currCard].answer);
+    const userGuess = normalize(params);
+    setCorrect(correct === userGuess);
+    setSubmitClicked(true);
+  }
+ 
   return (
     <div className="app-container">
       <h1 className="title"> The Ultimate Resume Flashcard Study Guide </h1>
       <h2 className="sub-title"> A personalized flashcard study guide for Prativa! </h2>
       <h3 className="num-cards"> Number of cards: {flashcards.length}</h3>
+
 
       <div className="card-container" onClick={handleClick}>
         <div className={`card-inner ${clicked ? 'flipped' : ''}`}>
@@ -144,13 +171,46 @@ function App() {
         </div>
       </div>
 
-      <div className="button-container">
-        <button className="back-next" onClick={handlePrevCard}> Back </button>
-        <button className="back-next" onClick={handleNextCard}> Next </button>
+
+      <div className="guess-container">
+        <input
+          className={`guess-text ${
+            submitClicked ? (isCorrect ? "correct" : "incorrect") : ""
+          }`}
+          type="text"
+          placeholder="Enter guess here..."
+          value={guess}
+          onChange={(e) => {
+            setGuess(e.target.value);
+            setSubmitClicked(false);
+            setCorrect(false); // reset color when typing again
+          }}
+        />
+        <button className="submit-guess" onClick={() => handleSubmitGuess(guess)}> Submit </button>
       </div>
-      
+
+      <div>
+        {guess.length > 0 && submitClicked && <p>{isCorrect}</p>}
+      </div>
+     
+
+      <div className="button-container">
+        <button className={`back-next ${currCard === 0 ? 'disabled' : ''}`} onClick={handlePrevCard}  disabled={currCard === 0}> Back </button>
+        <button className={`back-next ${currCard === flashcards.length - 1 ? 'disabled' : ''}`} onClick={handleNextCard}> Next </button>
+      </div>
+
     </div>
   )
 }
+
+
+// <button
+//         className={`back-next ${currCard === 0 ? 'disabled' : ''}`}
+//         onClick={handlePrevCard}
+//         disabled={currCard === 0} // Disable button when on the first card
+//       >
+//         Back
+//       </button>
+
 
 export default App
