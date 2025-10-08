@@ -35,8 +35,6 @@ The following **required** functionality is completed:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
-![flashcard_gif-MadewithClipchamp-ezgif com-optimize](https://github.com/user-attachments/assets/4b5d0c9c-01a0-488d-9c35-5b9b872969cd)
-
 
 ![Untitledvideo-MadewithClipchamp-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/13842dbe-04ae-4ae8-b618-ca5a1b33cfc5)
 
